@@ -37,6 +37,14 @@ def find_stockmarkets():
 def main():
     viewer = Viewer()
     viewer.markets = find_stockmarkets()
+    input('Press Enter to Continue')
+    # Attempting to check if RMIs are still valid
+    for market in viewer.markets:
+        try:
+            testName = market.name
+        except BaseException:
+            print('Error Encountered')
+            exit(1)
     viewer.symbols = {"IBM", "AAPL", "MSFT"}
     viewer.start()
 
